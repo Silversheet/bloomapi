@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"log"
+	"os"
 	"github.com/codegangsta/negroni"
-	"github.com/spf13/viper"
 	"github.com/gorilla/mux"
 
 	"github.com/untoldone/bloomapi/middleware"
@@ -12,7 +12,7 @@ import (
 )
 
 func Server() {
-	port := viper.GetString("bloomapiPort")
+	port := os.Getenv("PORT")
 	n := negroni.Classic()
 
 	// Pre-Router Middleware setup
